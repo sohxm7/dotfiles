@@ -1,9 +1,10 @@
 # set modifier
 set $super Mod4
 set $alt Mod1
+exec --no-startup-id /usr/lib/kdeconnectd
 
 # set font
-font pango: Ubuntu 12 
+font pango: Ubuntu 12
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
@@ -11,7 +12,8 @@ floating_modifier $super
 #autostart
 exec --no-startup-id hsetroot -center ~/.wallpaper.png
 exec --no-startup-id xsettingsd &
-exec --no-startup-id compton -f
+# :exec --no-startup-id compton -f
+# exec --no-startup-id i3-msg 'workspace 7:Web; exec brave'
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 
 # start a terminal
@@ -20,12 +22,9 @@ bindsym $super+Return exec alacritty
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
 # bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
-# bindsym $super+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
+# bindsym $super+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -hide-scrollbar  -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 # bindsym $super+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -hide-scrollbar -show-icons -drun-icon-theme 'Arc-X-D' -font 'Noto Sans Regular 10'  -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
-bindsym $super+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -hide-scrollbar -font 'Ubuntu 12'  -color-window '#35224e, #35224e, #35224e' -color-normal '#35224e, #ffffff, #35224e, #ffffff, #35224e' -color-active '#35224e, #b3e774, #35224e, #b3e774, #35224e' -color-urgent '#35224e, #b3e774, #35224e, #b3e774, #35224e'"
-
- 
-
+bindsym $super+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -font 'Ubuntu 12'  -color-window '#42225e, #42225e, #42225e' -color-normal '#42225e, #ffffff, #42225e, #ffffff, #42225e' -color-active '#42225e, #b3e774, #42225e, #b3e774, #42225e' -color-urgent '#42225e, #b3e774, #42225e, #b3e774, #42225e'"
 
 # common apps keybinds
 bindsym Print exec scrot 'Pictures/screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
@@ -54,7 +53,7 @@ bindsym $super+Shift+q kill
 bindsym $alt+F4 kill
 
 # change focus
-bindsym $super+h focus left
+# bindsym $super+h focus left
 bindsym $super+Left focus left
 bindsym $super+j focus down
 bindsym $super+Down focus down
@@ -69,14 +68,14 @@ bindsym $super+Shift+Down move down
 bindsym $super+Shift+Up move up
 bindsym $super+Shift+Right move right
 
-exec_always --no-startup-id xinput set-prop 14 'libinput Tapping Enabled' 1
-exec_always --no-startup-id xinput set-prop 14 'libinput Natural Scrolling Enabled' 1
+exec_always --no-startup-id "xinput set-prop 14 'libinput Tapping Enabled' 1"
+exec_always --no-startup-id "xinput set-prop 14 'libinput Natural Scrolling Enabled' 1"
 
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
 # split in horizontal orientation
-#bindsym $super+h split h
+bindsym $super+h split h
 
 # split in vertical orientation
 bindsym $super+v split v
@@ -102,6 +101,9 @@ bindsym $super+3 workspace 3
 bindsym $super+4 workspace 4
 bindsym $super+5 workspace 5
 bindsym $super+6 workspace 6
+bindsym $super+7 workspace 7
+bindsym $super+8 workspace 8
+bindsym $super+9 workspace 9
 
 # move focused container to workspace
 bindsym $super+Shift+1 move container to workspace 1
@@ -110,12 +112,16 @@ bindsym $super+Shift+3 move container to workspace 3
 bindsym $super+Shift+4 move container to workspace 4
 bindsym $super+Shift+5 move container to workspace 5
 bindsym $super+Shift+6 move container to workspace 6
+bindsym $super+Shift+7 move container to workspace 7
+bindsym $super+Shift+8 move container to workspace 8
+bindsym $super+Shift+9 move container to workspace 9
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $super+Shift+r restart
 
 # exit i3
-bindsym $super+Shift+l exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
+bindsym $super+Shift+l exec "i3-msg exit"
+#bindsym $super+Shift+l exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -147,17 +153,18 @@ bindsym $super+r mode "resize"
 
 
 # window rules, you can find the window class using xprop
-for_window [class=".*"] border pixel 0 
-# assign [class=URxvt] 1
-# assign [class=Firefox|Transmission-gtk] 2
-# assign [class=Thunar|File-roller] 3
+for_window [class=".*"] border pixel 2
+#assign [class=Brave] 1
+#assign [class=Geany|Transmission-gtk] 2
+## assign [class=|File-roller] 3
 # ssign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
 # ssign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
 #assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
 #for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
 #for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
 #for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
-
+# This is what I use in ie config
+# custom variables for workspaces
 # colour of border, background, text, indicator, and child_border
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
@@ -170,7 +177,10 @@ exec nitrogen --restore
 exec picom -f
 gaps inner 20
 
+for_window [title="video0 - mpv"] floating enable
+for_window [title="video0 - mpv"] sticky enable
+bindsym $super+c exec "zsh $HOME/Scripts/cam.sh"
 
 exec_always --no-startup-id "zsh $HOME/.config/polybar/launch.sh"
-
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# exec_always --no-startup-id "python $HOME/liwe/liwe.py"
+# exec_always --no-startup-id "while sleep 10m; do python $HOME/liwe/liwe.py; done"
