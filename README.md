@@ -9,3 +9,4 @@ My i3 config dotfiles. Copying every file should work, but you'll need the follo
 + JetBrains Mono Font
 + Alacritty
 + zsh as shell
++ Neovim
