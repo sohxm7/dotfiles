@@ -1,9 +1,8 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
 export ZSH="/home/soham/.oh-my-zsh"
-
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="nvim -c 'set ft=man' -"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -21,7 +20,7 @@ CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-HYPHEN_INSENSITIVE="true"
+# HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -42,7 +41,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -98,26 +97,25 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls='ls --color=auto'
-alias rgdm='sudo systemctl restart gdm'
-alias pac='sudo pacman'
+
+### VIM
 alias vim='nvim'
+alias vrc='nvim $HOME/.config/nvim/init.vim'
+alias zrc='nvim .zshrc'
 alias svim='sudo nvim'
-# alias grep='grep --color'
-alias svim='sudo nvim'
-# alias ccat='pygmentize -g'
+
+### COLOR
+alias ls='ls --color=auto'
 alias cat='highlight -O ansi --force'
-alias ll='ls -alh'
+alias grep='grep --color'
+# alias ccat='pygmentize -g'
+
+### OTHER
 alias c='clear'
-alias pingg='ping google.com'
+alias pac='sudo pacman'
 alias timer='termdown'
 alias wifix='sudo systemctl restart NetworkManager'
-
-
-
-
+alias ffrec='ffmpeg -y -f x11grab -s 1920x1080 -i :0.0'
 
 
 stty stop undef	
