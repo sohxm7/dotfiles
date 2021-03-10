@@ -1,8 +1,8 @@
 # XTerm's default colors
 colors:
-   # Default colors
+   # Default colors  '#32225e'
    primary:
-     background: '#32224e'
+     background: '#111111'
      foreground: '#d0cfcc'
    # Normal colors
    normal:
@@ -17,9 +17,9 @@ colors:
 
    # Bright colors
    bright:
-     black:   '#5e5c64'
+     black:   '#8e8c84'
      red:     '#f66151'
-     green:   '#33da7a'
+     green:   '#10ff70'
      yellow:  '#e9ad0c'
      blue:    '#4c96f1'
      magenta: '#c061cb'
@@ -39,4 +39,4 @@ font:
 
     # The `style` can be specified to pick a specific face.
     style: Regular
-background_opacity: 0.9
+background_opacity: 0.85
