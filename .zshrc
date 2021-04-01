@@ -41,7 +41,7 @@ CASE_SENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
@@ -70,7 +70,6 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions fast-syntax-highlighting)
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,17 +100,23 @@ fi
 ### VIM
 alias vim='nvim'
 alias vrc='nvim $HOME/.config/nvim/init.vim'
-alias zrc='nvim .zshrc'
+alias vzh='nvim $HOME/.zshrc'
+alias vi3='nvim $HOME/.config/i3/config'
+alias vpb='nvim $HOME/.config/polybar/config'
+alias val='nvim $HOME/.config/alacritty/alacritty.yml'
 alias svim='sudo nvim'
 
 ### COLOR
 alias ls='ls --color=auto'
+alias xat='lolcat'
 alias cat='highlight -O ansi --force'
 alias grep='grep --color'
-# alias ccat='pygmentize -g'
+alias nef='neofetch | lolcat'
+alias ccat='pygmentize -g'
 
 ### OTHER
 alias c='clear'
+alias py='python'
 alias pac='sudo pacman'
 alias timer='termdown'
 alias wifix='sudo systemctl restart NetworkManager'
@@ -146,8 +151,7 @@ zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt
 
-
 fpath+=$HOME/.zsh/pure
 
-
 PROMPT=" %F{27}%~%f%F{red} $ %f"
+#(cat ~/.cache/wal/sequences &)
