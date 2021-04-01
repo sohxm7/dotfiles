@@ -1,7 +1,6 @@
 # set modifier
 set $super Mod4
 set $alt Mod1
-exec --no-startup-id /usr/lib/kdeconnectd
 
 # set font
 font pango: Ubuntu 12
@@ -10,26 +9,28 @@ font pango: Ubuntu 12
 floating_modifier $super
 
 #autostart
-exec --no-startup-id hsetroot -center ~/.wallpaper.png
-exec --no-startup-id xsettingsd &
-# :exec --no-startup-id compton -f
-# exec --no-startup-id i3-msg 'workspace 7:Web; exec brave'
+# exec --no-startup-id hsetroot -center ~/.wallpaper.png
+# exec --no-startup-id xsettingsd &
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
 
 # start a terminal
 bindsym $super+Return exec alacritty
 
+# with prompt
+bindsym $super+p exec i3-quickterm
+
 # start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=8'"
+bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu:size=16'"
 # bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
 # bindsym $super+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -hide-scrollbar  -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 # bindsym $super+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -hide-scrollbar -show-icons -drun-icon-theme 'Arc-X-D' -font 'Noto Sans Regular 10'  -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
-bindsym $super+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -font 'Ubuntu 12'  -color-window '#32225e, #32225e, #32225e' -color-normal '#32225e, #ffffff, #32225e, #ffffff, #32225e' -color-active '#32225e, #b3e774, #32225e, #b3e774, #32225e' -color-urgent '#32225e, #b3e774, #32225e, #b3e774, #32225e'"
+bindsym $super+Shift+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -font 'Ubuntu 12'  -color-window '#32225e, #32225e, #32225e' -color-normal '#32225e, #ffffff, #32225e, #ffffff, #32225e' -color-active '#32225e, #b3e774, #32225e, #b3e774, #32225e' -color-urgent '#32225e, #b3e774, #32225e, #b3e774, #32225e'"
 
 # common apps keybinds
 bindsym Print exec scrot 'Pictures/screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
-# bindsym $super+l exec i3lock -i ~/.wallpaper.png
-bindsym $super+w exec brave
+
+bindsym $super+w exec librewolf
+bindsym $super+e exec brave
 
 #change volume
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+
@@ -37,16 +38,16 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5%-
 bindsym XF86AudioMute exec amixer set Master toggle
 
 # brightness
-#bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-#bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-bindsym XF86MonBrightnessUp exec sudo light -A 5
-bindsym XF86MonBrightnessDown exec sudo light -U 5
+# bindsym XF86MonBrightnessUp exec xbacklight -inc 20
+# bindsym XF86MonBrightnessDown exec xbacklight -dec 20
+# bindsym XF86MonBrightnessUp exec sudo light -A 5
+# bindsym XF86MonBrightnessDown exec sudo light -U 5
 
 # music control
-bindsym XF86AudioNext exec mpc next
-bindsym XF86AudioPrev exec mpc prev
-bindsym XF86AudioPlay exec mpc toggle
-bindsym XF86AudioStop exec mpc stop
+# bindsym XF86AudioNext exec mpc next
+# bindsym XF86AudioPrev exec mpc prev
+# bindsym XF86AudioPlay exec mpc toggle
+# bindsym XF86AudioStop exec mpc stop
 
 # kill focused window
 bindsym $super+Shift+q kill
@@ -70,10 +71,10 @@ bindsym $super+Shift+Right move right
 
 exec_always --no-startup-id "xinput set-prop 14 'libinput Tapping Enabled' 1"
 exec_always --no-startup-id "xinput set-prop 14 'libinput Natural Scrolling Enabled' 1"
-
 exec_always --no-startup-id xmodmap -e "clear lock"
 exec_always --no-startup-id xmodmap -e "keycode 9 = Caps_Lock NoSymbol Caps_Lock"
 exec_always --no-startup-id xmodmap -e "keycode 66 = Escape NoSymbol Escape"
+
 # split in horizontal orientation
 bindsym $super+h split h
 
@@ -121,7 +122,6 @@ bindsym $super+Shift+r restart
 
 # exit i3
 bindsym $super+Shift+l exec "i3-msg exit"
-#bindsym $super+Shift+l exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -140,32 +140,20 @@ bindsym $super+r mode "resize"
 #        background #2f343f
 #        statusline #2f343f
 #        separator #4b5262
-
-       # colour of border, background, and text
+#
+#      # colour of border, background, and text
 #        focused_workspace       #2f343f #bf616a #d8dee8
 #        active_workspace        #2f343f #2f343f #d8dee8
 #        inactive_workspace      #2f343f #2f343f #d8dee8
 #        urgent_workspacei       #2f343f #ebcb8b #2f343f
- #   }
-  #      status_command i3status
+#   }
+#        status_command i3status
 #}
 
-
-
-# window rules, you can find the window class using xprop
+# window border and gaps
 for_window [class=".*"] border pixel 2
-#assign [class=Brave] 1
-#assign [class=Geany|Transmission-gtk] 2
-## assign [class=|File-roller] 3
-# ssign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
-# ssign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
-#assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-#for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-#for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-#for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
-# This is what I use in ie config
-# custom variables for workspaces
-# colour of border, background, text, indicator, and child_border
+gaps inner 20
+
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
 client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
@@ -173,16 +161,10 @@ client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
 
-# exec nitrogen --restore
-exec picom -f
-gaps inner 20
-
 for_window [title="video0 - mpv"] floating enable
+for_window [title="Window"] floating enable
 for_window [title="video0 - mpv"] sticky enable
 bindsym $super+c exec "zsh $HOME/Scripts/cam.sh"
 
 exec_always --no-startup-id "zsh $HOME/.config/polybar/launch.sh"
-
-exec_always --no-startup-id "xwallpaper --center $HOME/liwe/out.png"
-exec_always --no-startup-id "python $HOME/liwe/liwe.py"
-exec_always --no-startup-id "while sleep 10m; do python $HOME/liwe/liwe.py; done"
+exec --no-startup-id /usr/lib/kdeconnectd
