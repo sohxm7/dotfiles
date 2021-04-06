@@ -116,12 +116,17 @@ alias ccat='pygmentize -g'
 
 ### OTHER
 alias c='clear'
+alias zshalias='cat ~/.zshrc | grep '
 alias py='python'
 alias pac='sudo pacman'
 alias timer='termdown'
 alias wifix='sudo systemctl restart NetworkManager'
 alias ffrec='ffmpeg -y -f x11grab -s 1920x1080 -i :0.0'
 
+### ANDROID
+alias droid_list='simple-mtpfs -l'
+alias droid_connect='simple-mtpfs --device 1 Mobile/'
+alias droid_disconnect='fusermount -u Mobile'
 
 stty stop undef	
 autoload -U colors && colors	# Load colors
@@ -155,3 +160,4 @@ fpath+=$HOME/.zsh/pure
 
 PROMPT=" %F{27}%~%f%F{red} $ %f"
 #(cat ~/.cache/wal/sequences &)
+echo ""
