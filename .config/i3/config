@@ -3,16 +3,14 @@ set $super Mod4
 set $alt Mod1
 
 # set font
-font pango: Ubuntu 12
+font pango: Ubuntu 12 
 
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
 #autostart
 # exec --no-startup-id hsetroot -center ~/.wallpaper.png
-# exec --no-startup-id xsettingsd &
 # bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
-
 # start a terminal
 bindsym $super+Return exec alacritty
 
@@ -24,7 +22,7 @@ bindsym $super+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Ubuntu:size=16'"
 # bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 8'
 # bindsym $super+d exec "rofi -modi window,drun,run -show drun -sidebar-mode -hide-scrollbar  -terminal termite -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
 # bindsym $super+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -hide-scrollbar -show-icons -drun-icon-theme 'Arc-X-D' -font 'Noto Sans Regular 10'  -color-window '#000000, #000000, #000000' -color-normal '#000000, #b3e774, #000000, #b3e774, #000000' -color-active '#000000, #b3e774, #000000, #b3e774, #000000' -color-urgent '#000000, #b3e774, #000000, #b3e774, #000000'"
-bindsym $super+Shift+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -font 'Ubuntu 12'  -color-window '#32225e, #32225e, #32225e' -color-normal '#32225e, #ffffff, #32225e, #ffffff, #32225e' -color-active '#32225e, #b3e774, #32225e, #b3e774, #32225e' -color-urgent '#32225e, #b3e774, #32225e, #b3e774, #32225e'"
+# bindsym $super+Shift+d exec "rofi -modi drun -show drun -line-padding 4 -padding 50 -font 'Ubuntu 12'  -color-window '#32225e, #32225e, #32225e' -color-normal '#32225e, #ffffff, #32225e, #ffffff, #32225e' -color-active '#32225e, #b3e774, #32225e, #b3e774, #32225e' -color-urgent '#32225e, #b3e774, #32225e, #b3e774, #32225e'"
 
 # common apps keybinds
 bindsym Print exec scrot 'Pictures/screenshots/Cheese_%a-%d%b%y_%H.%M.png' -e 'viewnior ~/$f'
@@ -151,7 +149,7 @@ bindsym $super+r mode "resize"
 #}
 
 # window border and gaps
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 0
 gaps inner 20
 
 client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
@@ -166,5 +164,16 @@ for_window [title="Window"] floating enable
 for_window [title="video0 - mpv"] sticky enable
 bindsym $super+c exec "zsh $HOME/Scripts/cam.sh"
 
-exec_always --no-startup-id "zsh $HOME/.config/polybar/launch.sh"
+bindsym $super+i gaps inner all set 0
+bindsym $super+o gaps inner all set 20
+exec_always --no-startup-id "sh $HOME/.config/polybar/launch.sh"
+# exec_always --no-startup-id "sh $HOME/Scripts/guake.sh"
 exec --no-startup-id /usr/lib/kdeconnectd
+
+
+# Rofi
+#
+bindsym $super+Shift+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+bindsym $super+Shift+s exec --no-startup-id ~/.config/rofi/bin/menu_screenshot
+bindsym $super+Shift+d exec --no-startup-id ~/.config/rofi/bin/launcher_ribbon
+
