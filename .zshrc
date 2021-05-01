@@ -1,5 +1,6 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+
 export ZSH="/home/soham/.oh-my-zsh"
 # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export MANPAGER="nvim -c 'set ft=man' -"
@@ -103,6 +104,8 @@ alias vrc='nvim $HOME/.config/nvim/init.vim'
 alias vzh='nvim $HOME/.zshrc'
 alias vi3='nvim $HOME/.config/i3/config'
 alias vpb='nvim $HOME/.config/polybar/config'
+alias vbs='nvim $HOME/.config/bspwm/bspwmrc'
+alias vsx='nvim $HOME/.config/sxhkd/sxhkdrc'
 alias val='nvim $HOME/.config/alacritty/alacritty.yml'
 alias svim='sudo nvim'
 
@@ -116,6 +119,7 @@ alias ccat='pygmentize -g'
 
 ### OTHER
 alias c='clear'
+alias rng='ranger'
 alias zshalias='cat ~/.zshrc | grep '
 alias py='python'
 alias pac='sudo pacman'
