@@ -1,6 +1,7 @@
 set number
-set nohlsearch
 set mouse=a
+nnoremap <esc><esc> :silent! nohls<cr>
+
 set clipboard+=unnamedplus
 set relativenumber
 set formatoptions-=cro
@@ -30,15 +31,37 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     Plug 'jiangmiao/auto-pairs'
     " Color Line
     Plug 'itchyny/lightline.vim'
-    " Rainbow Brackets
-    Plug 'frazrepo/vim-rainbow'
-    " COC
-    Plug 'neoclide/coc.nvim'
     " Goyo
     Plug 'junegunn/goyo.vim'
+    " Tokyo
+    Plug 'ghifarit53/tokyonight-vim'
+    " Rainbow Brackets
+    Plug 'frazrepo/vim-rainbow'
+    " Nerdtree icons
+    Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 
-syntax on
+"autocmd VimEnter * NERDTree
+"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+nmap <C-f> :NERDTreeToggle<CR>
+
+
+syntax on 
 autocmd BufEnter *asm setfiletype nasm
+
+set termguicolors
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
+colorscheme tokyonight
+
+
+"autocmd VimEnter * NERDTree
+"autocmd VimEnter * NERDTree | wincmd p
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+:nnoremap <Leader>w <C-w>
