@@ -51,13 +51,15 @@ autocmd BufEnter *asm setfiletype nasm
 set termguicolors
 let g:tokyonight_style = 'night' " available: night, storm
 let g:tokyonight_enable_italic = 1
+let g:tokyonight_transparent_background = 1
 colorscheme tokyonight
-
-"autocmd VimEnter * NERDTree
-"autocmd VimEnter * NERDTree | wincmd p
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
     \ quit | endif
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-
+ 
 :nnoremap <Leader>w <C-w>
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile /tmp/calcurse*,~/.calcurse/notes/* set filetype=markdown
