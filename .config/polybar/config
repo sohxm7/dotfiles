@@ -150,7 +150,7 @@ label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-; unfocused = Inactive workspace on any monitor
+; unfocused = Inative workspace on any monitor
 label-unfocused = %index%
 label-unfocused-padding = 2
 
@@ -425,4 +425,4 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-; vim:ft=dosini
+; vim:ft=dosinic
