@@ -1,38 +1,100 @@
-# XTerm's default colors
-colors:
-   # Default colors 1a1b26##12023e 111535'#32225e'
-   primary:
-     background: '#12022e' 
-     foreground: '#d0cfcc'
+## XTerm's default colors
+#colors:
+#   # Default colors '#12022e' 1a1b26##12023e 111535'#32225e'
+#   primary:
+#     background: '#1a1b26'
+#     foreground: '#d0cfcc'
+#
+#   # Normal colors
+#   normal:
+#     black:   '#000000'
+#     red:     '#FF3653'
+#     green:   '#00ff26'
+#     yellow:  '#8EC752'
+#     blue:    '#5689F5'
+#     magenta: '#956DDF'
+#     cyan:    '#216dff'
+#     white:   '#d0cfcc'
+#
+#   # Bright colors
+#   bright:
+#     black:   '#8e8c84'
+#     red:     '#f66151'
+#     green:   '#10ff70'
+#     yellow:  '#e9ad0c'
+#     blue:    '#4c96f1'
+#     magenta: '#c061cb'
+#     cyan:    '#33c7de'
+#     white:   '#ffffff'
+#
+schemes:
+  # Tokyo Night theme, based on both:
+  #   https://github.com/ghifarit53/tokyonight-vim
+  #   https://github.com/enkia/tokyo-night-vscode-theme
+  tokyo-night: &tokyo-night
+    # Default colors
+    primary:
+      background: '0x1a1b26'
+      foreground: '0xa9b1d6'
 
-   # Normal colors
-   normal:
-     black:   '#000000'
-     red:     '#FF3653'
-     green:   '#00ff26'
-     yellow:  '#8EC752'
-     blue:    '#5689F5'
-     magenta: '#956DDF'
-     cyan:    '#216dff'
-     white:   '#d0cfcc'
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xff465e'
+      green:   '0x4efe6a'
+      yellow:  '0xe0af68'
+      blue:    '0x4aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x787c99'
 
-   # Bright colors
-   bright:
-     black:   '#8e8c84'
-     red:     '#f66151'
-     green:   '#10ff70'
-     yellow:  '#e9ad0c'
-     blue:    '#4c96f1'
-     magenta: '#c061cb'
-     cyan:    '#33c7de'
-     white:   '#ffffff'
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x4da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
+
+  tokyo-night-storm: &tokyo-night-storm
+    # Default colors
+    primary:
+      background: '0x24283b'
+      foreground: '0xa9b1d6'
+
+    # Normal colors
+    normal:
+      black:   '0x32344a'
+      red:     '0xf7768e'
+      green:   '0x9ece6a'
+      yellow:  '0xe0af68'
+      blue:    '0x7aa2f7'
+      magenta: '0xad8ee6'
+      cyan:    '0x449dab'
+      white:   '0x9699a8'
+
+    # Bright colors
+    bright:
+      black:   '0x444b6a'
+      red:     '0xff7a93'
+      green:   '0xb9f27c'
+      yellow:  '0xff9e64'
+      blue:    '0x7da6ff'
+      magenta: '0xbb9af7'
+      cyan:    '0x0db9d7'
+      white:   '0xacb0d0'
 
 font:
   normal:
     family: 'JetBrainsMono Nerd Font'
     style: Regular
-background_opacity: 0.8
+background_opacity: 1.0
 window:
   padding:
-   x: 14
-   y: 14
+   x: 24
+   y: 24
+
+colors: *tokyo-night
