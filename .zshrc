@@ -39,9 +39,6 @@ alias grep='grep --color'
 alias nef='neofetch | lolcat'
 alias ccat='pygmentize -g'
 
-### GAME
-alias zero='prime-run 0ad'
-
 ### ANDROID
 alias droid_list='simple-mtpfs -l'
 alias droid_connect='simple-mtpfs --device 1 Mobile/'
@@ -51,26 +48,21 @@ alias droid_disconnect='fusermount -u Mobile'
 alias dow='cd $HOME/Downloads'
 alias pic='cd $HOME/Pictures'
 alias vid='cd $HOME/Videos'
+alias cd..='cd ..'
 
 ### OTHER
 alias c='clear'
 alias py='python'
 alias rng='ranger'
+alias ytd='youtube-dl '
 alias clc='calcurse'
 alias cls='clear && ls'
 alias timer='termdown'
 alias pac='sudo pacman'
 alias sxi='sxiv * -t'
-alias crpt='curl rate.sx'
-alias dragon='dragon-drag-and-drop'
 alias winec='cd $HOME/.wine/drive_c/'
 alias wifix='sudo systemctl restart NetworkManager'
 alias ffrec='ffmpeg -y -f x11grab -s 1920x1080 -i :0.0'
-
-### PDF
-alias grokking='zathura ~/Downloads/grokking.pdf & disown'
-alias handbook='zathura ~/Downloads/book.pdf & disown'
-alias advanced='zathura ~/Downloads/clrs.pdf & disown'
 
 stty stop undef	
 autoload -U colors && colors	
@@ -104,4 +96,3 @@ fpath+=$HOME/.zsh/pure
 
 PROMPT="%F{27}%~%f%F{red} $ %f"
 #(cat ~/.cache/wal/sequences &)
-echo ""
